@@ -39,3 +39,8 @@ body, html{
   background-color: rgba(0, 238, 131, 0.1);
   
 }
+
+select{
+  cursor: pointer;
+  outline: none;
+}

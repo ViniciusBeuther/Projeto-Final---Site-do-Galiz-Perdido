@@ -4,6 +4,7 @@ import Database from "./Classes/Database";
 import supabase from "./supabase/supabase";
 import Header from "./Componets/Header";
 import MainBackground from "./Componets/MainBackground";
+import FilterBar from "./Componets/FilterBar";
 
 const App = () => {
     const card = new Card('CAO', 'QLQ LUGAR', 'HORARIO QUALUQER', 'image');
@@ -25,6 +26,7 @@ const App = () => {
       data ? (
         <div>
             <Header />
+            <FilterBar />
             <MainBackground data={data} />
         </div>
       ) : (null)
