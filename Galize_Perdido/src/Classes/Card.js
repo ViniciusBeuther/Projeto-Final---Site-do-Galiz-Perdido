@@ -14,7 +14,7 @@ class Card{
         const month = this.time.month() + 1;
         const year = this.time.year();
         const hour = this.time.hour();
-        const minute = this.time.minute();
+        const minute = this.time.minute(); 
 
         //Formatting to MM/DD/YYYY
         const formattedDay = String( day ).padStart( 2,0 );
@@ -23,12 +23,14 @@ class Card{
         const formattedHour = String( hour ).padStart( 2,0 );
         const formattedMinute = String( minute ).padStart( 2,0 );
 
+
         const fulldate = `${ formattedDay }/${ formattedMonth }/${ formattedYear } ${ formattedHour }:${ formattedMinute }`;
 
         return fulldate; 
 
     }
 
+    
 }
 
 export default Card
