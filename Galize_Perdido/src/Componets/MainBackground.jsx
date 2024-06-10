@@ -9,10 +9,10 @@ const MainBackground = (props) => {
   const filter = new Filter();
 
   return (
-    <section className="flex flex-col items-center">
+    <section className="flex flex-col items-center" id="main_body">
       <FilterBar />
       <div>
-        <article className="bg-customBlack-500 flex flex-wrap p-10 max-w-[1440px] items-start justify-center gap-5">
+        <article className="flex flex-wrap p-10 max-w-[1440px] items-start justify-center gap-5">
             
           {data.map((animal, idx) => {
             const card = new Card(
