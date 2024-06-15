@@ -18,7 +18,7 @@ const AnimalCard = ({ card, idx }) => {
         </div>
         <div className="flip-card-back flex flex-col items-start justify-start p-5">
           <h2 className="text-large text-center w-full font-extrabold text-white mb-3">
-            { card.animalType }
+            { card.animalType  }
           </h2>
           <div className="flex justify-start">
             <p className="text-medium text-customGreen-500 font-bold mr-1 ml-2">
