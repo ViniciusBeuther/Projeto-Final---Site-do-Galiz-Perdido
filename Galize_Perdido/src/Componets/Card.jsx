@@ -22,7 +22,7 @@ const AnimalCard = ({ card, idx }) => {
           </h2>
           <div className="flex justify-start">
             <p className="text-medium text-customGreen-500 font-bold mr-1 ml-2">
-              Localização:
+              Cidade: {  }
             </p>
             <p className="text-medium text-white">{card.location}</p>
           </div>

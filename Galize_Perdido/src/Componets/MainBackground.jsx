@@ -17,12 +17,13 @@ const MainBackground = (props) => {
           {data.map((animal, idx) => {
             const card = new Card(
               animal.animal_type,
-              animal.location,
+              animal.address,
               animal.time,
               animal.image
             );
-
+            console.log(card)
             return (
+              
               <AnimalCard card={card} key={idx} />
             );
           })}

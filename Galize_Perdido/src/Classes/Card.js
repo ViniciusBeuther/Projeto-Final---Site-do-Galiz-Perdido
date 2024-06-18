@@ -1,9 +1,12 @@
 import dayjs from "dayjs";
+import supabase from "../supabase/supabase";
 
 class Card{
-    constructor( animalType, location, time, image ){
+    constructor( animalType, locationID, time, image ){
         this.animalType = animalType
-        this.location = location
+        this.locationID = locationID;
+        this.locationID = null;
+        this.getLocation( location )
         this.time = dayjs(time)
         this.image = image
     }
@@ -28,6 +31,19 @@ class Card{
 
         return fulldate; 
 
+    }
+
+    async getLocation(){
+        try{
+            let { data: animals_address, error } = await supabase
+            .from('animals_address')
+            .select('*') 
+            .eq("id", this.locationID);
+            this.location = animals_address;
+            return console.log("Sucesso....")     
+        } catch( error ){
+            return console.log("Algo deu errado...", error)
+        }
     }
 
     
