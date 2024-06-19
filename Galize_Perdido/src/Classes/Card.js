@@ -33,13 +33,18 @@ class Card {
             let { data: animals_address, error } = await supabase
                 .from('animals_address')
                 .select('*')
-                .eq('id', locationID);
+                .eq('animal_id', locationID);
 
             if (error) throw error;
 
             if (animals_address.length > 0) {
-                this.location = animals_address[0].address;
-                console.log(this)
+                this.location = {
+                    "city": animals_address[0].city,
+                    "state": animals_address[0].state,
+                    "neighborhood": animals_address[0].neighborhood,
+                    "street": animals_address[0].street,
+                };
+                console.log("DB RETURN: ", animals_address)
             } else {
                 this.location = "Unknown Location";
             }

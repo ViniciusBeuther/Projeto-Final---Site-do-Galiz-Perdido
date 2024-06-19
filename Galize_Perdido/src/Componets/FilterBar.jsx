@@ -14,7 +14,7 @@ const FilterBar = () => {
 
   return (
     <section className="flex items-center justify-center">
-      <div className="flex items-end gap-5 max-w-[1440px] w-full">
+      <div className="flex lg:items-end items-start gap-5 max-w-[1440px] flex-col w-full">
         <span className="flex flex-col">
           <label className="text-white" htmlFor="animal_type">
             Tipo:
