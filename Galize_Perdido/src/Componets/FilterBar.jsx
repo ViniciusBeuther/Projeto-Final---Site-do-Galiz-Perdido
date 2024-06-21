@@ -2,27 +2,30 @@ import { useState } from "react";
 import Button from "./Button";
 import Filter from "../Classes/Filter";
 
-const FilterBar = () => {
-
+const FilterBar = ({ setFilters }) => {
   const filter = new Filter();
   
-
-  function handleClick(ev) {
-    ev.preventDefault();
-    return alert("clico");
-  }
+  const handleFilterChange = (event) => {
+    const { name, value } = event.target;
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      [name]: value
+    }));
+    console.log(name)
+  };
 
   return (
-    <section className="flex items-center justify-center">
-      <div className="flex lg:items-end items-start gap-5 max-w-[1440px] flex-col w-full">
+    <section className="flex items-center justify-center ">
+      <div className="flex lg:items-end md:items-end items-start gap-5 max-w-[1440px] flex-col lg:flex-row md:flex-row mb-5 w-full">
         <span className="flex flex-col">
-          <label className="text-white" htmlFor="animal_type">
+          <label className="text-white" htmlFor="animalType">
             Tipo:
           </label>
           <select
-            name="animal_type"
-            id="select_input01"
+            name="animalType"
+            id="animalType"
             className="bg-customGreen-500 py-2 px-4 rounded-lg shadow-lg font-bold"
+            onChange={handleFilterChange}
           >
             <option value="1">Cachorro</option>
             <option value="2">Gato</option>
@@ -38,20 +41,18 @@ const FilterBar = () => {
           </label>
           <select
             name="neighborhood"
-            id="select_input01"
+            id="neighborhood"
             className="bg-customGreen-500 py-2 px-4 rounded-lg shadow-lg font-bold"
+            onChange={handleFilterChange}
           >
             { filter.neighborhood.map((row) => {
               return (
-                <option value={row.key} key={row.key} onSelect={() => filter.setFilter(row.value)}>
+                <option value={row.value} key={row.key}>
                   {row.value}
                 </option>
               );
             }) }
           </select>
-        </span>
-        <span>
-          <Button text={"Buscar"} handleClick={handleClick} />
         </span>
       </div>
     </section>

@@ -22,9 +22,9 @@ class Filter{
             { key: 19, value: "Schramm" },
             { key: 20, value: "Serra Alta" },
             { key: 21, value: "25 de Julho" },
-            { key: 22, value: "Bairro" },
+            { key: 22, value: "Todos" },
           ],
-        this.selected = "Bairro"
+        this.selected = "Todos"
     }
 
     setFilter( selectedHood ){
