@@ -1,5 +1,4 @@
-import { useState } from "react";
-import Button from "./Button";
+import React from "react";
 import Filter from "../Classes/Filter";
 
 const FilterBar = ({ setFilters }) => {
@@ -11,11 +10,10 @@ const FilterBar = ({ setFilters }) => {
       ...prevFilters,
       [name]: value
     }));
-    console.log(name)
   };
 
   return (
-    <section className="flex items-center justify-center ">
+    <section className="flex items-center justify-center">
       <div className="flex lg:items-end md:items-end items-start gap-5 max-w-[1440px] flex-col lg:flex-row md:flex-row mb-5 w-full">
         <span className="flex flex-col">
           <label className="text-white" htmlFor="animalType">
@@ -25,14 +23,13 @@ const FilterBar = ({ setFilters }) => {
             name="animalType"
             id="animalType"
             className="bg-customGreen-500 py-2 px-4 rounded-lg shadow-lg font-bold"
+            defaultValue="4" // Adicionando defaultValue para garantir que "Todos" esteja selecionado por padrão
             onChange={handleFilterChange}
           >
+            <option value="4">Todos</option>
             <option value="1">Cachorro</option>
             <option value="2">Gato</option>
             <option value="3">Outro</option>
-            <option value="4" selected>
-              Todos
-            </option>
           </select>
         </span>
         <span className="flex flex-col">
@@ -45,6 +42,7 @@ const FilterBar = ({ setFilters }) => {
             className="bg-customGreen-500 py-2 px-4 rounded-lg shadow-lg font-bold"
             onChange={handleFilterChange}
           >
+            <option value="">Todos</option>
             { filter.neighborhood.map((row) => {
               return (
                 <option value={row.value} key={row.key}>

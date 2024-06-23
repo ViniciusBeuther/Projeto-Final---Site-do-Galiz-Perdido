@@ -18,7 +18,6 @@ const App = () => {
         fetchData();
     }, []);
 
-    console.log(data);
     
     return (
       data ? (

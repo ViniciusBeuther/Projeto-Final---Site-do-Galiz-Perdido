@@ -31,9 +31,6 @@ class Filter{
         this.selected = selectedHood
     }
 
-    matchNeighborhood( hood ){
-        
-    }
 }
 
 export default Filter;

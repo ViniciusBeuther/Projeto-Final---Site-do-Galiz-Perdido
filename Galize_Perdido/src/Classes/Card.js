@@ -44,13 +44,26 @@ class Card {
                     "neighborhood": animals_address[0].neighborhood,
                     "street": animals_address[0].street,
                 };
-                console.log("DB RETURN: ", animals_address)
+                
             } else {
                 this.location = "Unknown Location";
             }
-            console.log('Sucesso....');
+            
         } catch (error) {
             console.log('Algo deu errado...', error);
+        }
+    }
+
+    getTypeDescription(){
+        switch (this.animalType){
+            case "1":
+                return "Cachorro"
+
+            case "2":
+                return "Gato"
+
+            case "3":
+                return "Outro"
         }
     }
 }

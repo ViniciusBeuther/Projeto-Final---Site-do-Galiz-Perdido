@@ -33,7 +33,7 @@ const AnimalCard = ({ card, idx }) => {
           </div>
           <div className="flip-card-back flex flex-col items-start justify-start p-5 gap-5">
             <h2 className="text-large text-center w-full font-extrabold text-white mb-3">
-              {card.animalType}
+              {card.getTypeDescription()}
             </h2>
             <div className="flex justify-start">
               <p className="text-medium text-customGreen-500 font-bold mr-1 ">
@@ -70,7 +70,7 @@ const AnimalCard = ({ card, idx }) => {
       </div>
 
       <Modal show={showModal} onClose={closeModal}>
-        <h2 className="text-large text-white text-center font-extrabold mb-3">{card.animalType}</h2>
+        <h2 className="text-large text-white text-center font-extrabold mb-3">{card.getTypeDescription()}</h2>
         <div className="flex gap-10">
           <img src={card.image} alt={`${card.animalType}-${idx}`} className="h-[50%] w-[50%] object-cover rounded-[10px] mb-3" />
 

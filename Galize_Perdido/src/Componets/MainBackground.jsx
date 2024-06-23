@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Card from "../Classes/Card";
-import Filter from "../Classes/Filter";
 import AnimalCard from "./Card";
 import FilterBar from "./FilterBar";
 import sadIllustration from "../../public/sad_illustration.png";
 
 const MainBackground = (props) => {
   const data = props.data;
-  const filter = new Filter();
+
   const [cards, setCards] = useState([]);
   const [filteredCards, setFilteredCards] = useState([]);
   const [filters, setFilters] = useState({
-    animalType: "4",
+    animalType: "4", 
     neighborhood: "",
   });
 
@@ -20,7 +19,7 @@ const MainBackground = (props) => {
       const loadedCards = await Promise.all(
         data.map(async (animal) => {
           const card = new Card(
-            animal.animal_type,
+            animal.animal_type.toString(),
             animal.address,
             animal.time,
             animal.image
@@ -30,7 +29,7 @@ const MainBackground = (props) => {
         })
       );
       setCards(loadedCards);
-      setFilteredCards(loadedCards); // Inicialmente, todos os cards estão exibidos
+      setFilteredCards(loadedCards);
     };
 
     fetchData();
@@ -42,14 +41,17 @@ const MainBackground = (props) => {
 
   const applyFilters = () => {
     const filtered = cards.filter((card) => {
-      return (
-        (filters.animalType === "4" ||
-          card.animal_type === filters.animalType) &&
-        (!filters.neighborhood ||
-          (typeof card.address === "string" &&
-            card.address.includes(filters.neighborhood)))
-      );
+      // Filtrar por tipo de animal
+      const typeMatch = filters.animalType === "4" || card.animalType === filters.animalType;
+
+      // Filtrar por bairro, se selecionado
+      const neighborhoodMatch = !filters.neighborhood ||
+        (typeof card.location?.neighborhood === "string" &&
+          card.location.neighborhood.includes(filters.neighborhood));
+
+      return typeMatch && neighborhoodMatch;
     });
+
     setFilteredCards(filtered);
   };
 
