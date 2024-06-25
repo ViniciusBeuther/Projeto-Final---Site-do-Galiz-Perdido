@@ -52,7 +52,7 @@ const MainBackground = (props) => {
       return typeMatch && neighborhoodMatch;
     });
 
-    setFilteredCards(filtered);
+    setFilteredCards( filtered );
   };
 
   return (
