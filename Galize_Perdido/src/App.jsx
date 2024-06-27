@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import Card from "./Classes/Card";
 import Database from "./Classes/Database";
 import supabase from "./supabase/supabase";
 import Header from "./Componets/Header";
 import MainBackground from "./Componets/MainBackground";
+import ImageUpload from "./Componets/ImageUpload"; // Novo componente
 
 const App = () => {
     const [data, setData] = useState(null);
@@ -18,16 +18,14 @@ const App = () => {
         fetchData();
     }, []);
 
-    
     return (
-      data ? (
-        <div>
-            <Header />
-            
-            <MainBackground data={data} />
-        </div>
-      ) : (null)
-        
+        data ? (
+            <div>
+                <Header />
+                <MainBackground data={data} />
+                {/* <ImageUpload /> */}
+            </div>
+        ) : (null)
     );
 };
 

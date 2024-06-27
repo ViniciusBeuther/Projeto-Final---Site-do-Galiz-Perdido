@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../Classes/Card";
 import AnimalCard from "./Card";
 import FilterBar from "./FilterBar";
-import sadIllustration from "../../public/sad_illustration.png";
+import sadIllustration from "/sad_illustration.png";
 
 const MainBackground = (props) => {
   const data = props.data;
