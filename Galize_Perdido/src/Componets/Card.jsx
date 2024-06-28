@@ -73,7 +73,7 @@ const AnimalCard = ({ card, idx }) => {
         <h2 className="text-large text-white text-center font-extrabold mb-3">{card.getTypeDescription()}</h2>
         <div className="flex gap-10">
           <img src={card.image} alt={`${card.animalType}-${idx}`} className="h-[50%] w-[50%] object-cover rounded-[10px] mb-3" />
-
+{console.log(card)}
           <div className='textcontent flex flex-col gap-2'>
             <div>
               <p className="text-medium text-customGreen-500 font-bold mr-1 ">

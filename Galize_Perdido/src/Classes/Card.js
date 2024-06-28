@@ -47,6 +47,7 @@ class Card {
                 
             } else {
                 this.location = "Unknown Location";
+                console.log(animals_address);
             }
             
         } catch (error) {
